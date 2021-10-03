@@ -1,0 +1,11 @@
+println This programming language was made by Maxwell Fisher
+val
+inc
+wait
+clear
+println This programming language was made by @Maxwellcrafter
+val
+inc
+wait
+clear
+goto 1
