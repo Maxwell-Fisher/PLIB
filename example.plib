@@ -3,6 +3,7 @@ val
 inc
 wait
 clear
+color 0a
 println This programming language was made by @Maxwellcrafter
 val
 inc
