@@ -73,6 +73,8 @@ if "!line_%current%:~0,3!"=="end" (
     <nul set /p="!a!"
 ) else if "!line_%current%:~0,4!"=="wait" (
     ping 127.1 -n 2 > nul
+) else if "!line+%current:~0,3!"=="color" (
+    color !line_%current%:~0,3!
 )
 goto main
 
