@@ -1,5 +1,5 @@
 println This programming language was made by Maxwell Fisher
-print $val
+col $val
 inc
 wait
 clear

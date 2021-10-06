@@ -54,29 +54,27 @@ set a=0
 :main
 set /a current=current+1
 
-if "!line_%current%:~0,3!"=="end" (
+set read=!line_%current%:$val=%a%!
+
+if "!read:~0,3!"=="end" (
     goto end
-) else if "!line_%current%:~0,5!"=="clear" (
+) else if "!read:~0,5!"=="clear" (
     cls
-) else if "!line_%current%:~0,8!"=="println " (
-    set output=!line_%current%:~8,64!
-    set output=!output:$val=%a%!
-    echo !output!
-) else if "!line_%current%:~0,6!"=="print " (
-    set output=!line_%current%:~6,64!
-    set output=!output:$val=%a%!
-    <nul set /p="!output!"
-) else if "!line_%current%:~0,5!"=="goto " (
-    set current=!line_%current%:~5,64!
+) else if "!read:~0,8!"=="println " (
+    echo !read:~8,64!
+) else if "!read:~0,6!"=="print " (
+    <nul set /p="!read:~6,64!"
+) else if "!read:~0,5!"=="goto " (
+    set current=!read:~5,64!
     set /a current=current-1
-) else if "!line_%current%:~0,3!"=="inc" (
+) else if "!read:~0,3!"=="inc" (
     set /a a+=1
-) else if "!line_%current%:~0,3!"=="dec" (
+) else if "!read:~0,3!"=="dec" (
     set /a a=a-=1
-) else if "!line_%current%:~0,4!"=="wait" (
+) else if "!read:~0,4!"=="wait" (
     ping 127.1 -n 2 > nul
-) else if "!line_%current%:~0,4!"=="col " (
-    color !line_%current%:~4,2!
+) else if "!read:~0,4!"=="col " (
+    color !read:~4,2!
 )
 goto main
 
