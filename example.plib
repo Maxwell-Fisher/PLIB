@@ -1,9 +1,11 @@
-pln This programming language was made by Maxwell Fisher
+pnt This programming language was made by Maxwell Fisher
+mth $val * $val
 col $val
 inc
-wait
+wat
 clr
 pln This programming language was made by @Maxwellcrafter $val
+col $val
 inc
 wat
 clr
