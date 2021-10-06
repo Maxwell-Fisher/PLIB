@@ -3,6 +3,7 @@ val
 inc
 wait
 clear
+col 0D
 println This programming language was made by @Maxwellcrafter
 val
 inc
