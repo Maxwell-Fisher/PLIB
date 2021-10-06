@@ -1,11 +1,9 @@
 println This programming language was made by Maxwell Fisher
-val
+print $val
 inc
 wait
 clear
-col 0D
-println This programming language was made by @Maxwellcrafter
-val
+println This programming language was made by @Maxwellcrafter $val
 inc
 wait
 clear
