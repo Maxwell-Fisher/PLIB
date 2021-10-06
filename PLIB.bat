@@ -58,20 +58,20 @@ set read=!line_%current%:$val=%a%!
 
 if "!read:~0,3!"=="end" (
     goto end
-) else if "!read:~0,5!"=="clear" (
+) else if "!read:~0,3!"=="clr" (
     cls
-) else if "!read:~0,8!"=="println " (
-    echo !read:~8,64!
-) else if "!read:~0,6!"=="print " (
+) else if "!read:~0,4!"=="pln " (
+    echo !read:~4,64!
+) else if "!read:~0,4!"=="pnt " (
     <nul set /p="!read:~6,64!"
-) else if "!read:~0,5!"=="goto " (
-    set current=!read:~5,64!
+) else if "!read:~0,4!"=="got " (
+    set current=!read:~4,64!
     set /a current=current-1
 ) else if "!read:~0,3!"=="inc" (
     set /a a+=1
 ) else if "!read:~0,3!"=="dec" (
     set /a a=a-=1
-) else if "!read:~0,4!"=="wait" (
+) else if "!read:~0,3!"=="wat" (
     ping 127.1 -n 2 > nul
 ) else if "!read:~0,4!"=="col " (
     color !read:~4,2!

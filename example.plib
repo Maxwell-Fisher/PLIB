@@ -1,10 +1,10 @@
-println This programming language was made by Maxwell Fisher
+pln This programming language was made by Maxwell Fisher
 col $val
 inc
 wait
-clear
-println This programming language was made by @Maxwellcrafter $val
+clr
+pln This programming language was made by @Maxwellcrafter $val
 inc
-wait
-clear
-goto 1
+wat
+clr
+got 1
