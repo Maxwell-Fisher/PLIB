@@ -29,33 +29,22 @@ echo Type the name of the file that you want to run:
 set /p fileChoice="> "
 if not exist "!fileChoice!.plib" set fileChoice=!fileChoice:~0,-5!
 if not exist "!fileChoice!.plib" goto getExisting
-cls
-echo Loading !fileChoice!.plib into memory...
 for /f "tokens=*" %%a in (!fileChoice!.plib) do (
-title PLIB - @Maxwellcrafter [!fileChoice!.plib, !lineCount! lines]
 set line_!lineCount!=%%a
-if "%%a"=="end" goto compiled
+if "%%a"=="end" goto go
 set /a lineCount=lineCount+1
 )
 set /a lineCount=lineCount+2
-goto compiled
+goto go
 
 :getNew %= Gets and loads user input into memory =%
 set current=000!lineCount!
 set current=!current:~-4!
 set /p input="!current!> "
 set line_!lineCount!=!input!
-if "!input!"=="end" goto compiled
+if "!input!"=="end" goto go
 set /a lineCount=lineCount+1
 goto getNew
-
-:compiled
-cls
-title PLIB - @Maxwellcrafter [!fileChoice!.plib, !lineCount! lines]
-echo Loaded successfully [!lineCount! lines read]
-echo Press any key to run
-pause >nul
-title PLIB - @Maxwellcrafter [!fileChoice!.plib]
 
 :go
 cls
@@ -70,17 +59,21 @@ if "!current!"=="!lineCount!" goto end %= Runs when the end of the file is reach
 
 set read=!line_%current%:$val=%a%! %= Sets the current command to the line being read, and translates $val =%
 
-title PLIB - @Maxwellcrafter [!fileChoice!.plib @ line !current! of !lineCount!]
+:removeSpace %= Removes all leading spaces =%
+if "!read:~0,1!"==" " (
+set read=!read:~1,64!
+goto removeSpace
+)
 
 if "!read:~0,3!"=="end" ( %= Ends script =%
     goto end
 ) else if "!read:~0,3!"=="clr" ( %= Clears console window =%
     cls
-) else if "!read:~0,3!"=="pln" ( %= Prints text with a new line =%
+) else if "!read:~0,4!"=="pln " ( %= Prints text with a new line =%
     echo !read:~4,64!
-) else if "!read:~0,3!"=="pnt" ( %= Prints text without a new line =%
+) else if "!read:~0,4!"=="pnt " ( %= Prints text without a new line =%
     <nul set /p="!read:~4,64!"
-) else if "!read:~0,3!"=="got" ( %= Goes to the specified line =%
+) else if "!read:~0,4!"=="got " ( %= Goes to the specified line =%
     set current=!read:~4,64!
     set /a current=current-1
 ) else if "!read:~0,3!"=="inc" ( %= Adds 1 to $val =%
