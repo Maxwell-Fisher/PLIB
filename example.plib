@@ -5,6 +5,8 @@ inc
 wat
 clr
 pln This programming language was made by @Maxwellcrafter $val
+       pnt This code has leading whitespace
+     pnt but works as it should :)
 col $val
 inc
 wat
