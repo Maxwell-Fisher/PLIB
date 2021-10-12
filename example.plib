@@ -1,14 +1,47 @@
-pnt This programming language was made by Maxwell Fisher
+pln This programming language was made by Maxwell Fisher.
+pnt Here's a number:
 mth $val * $val
 col $val
 inc
-wat
+pnt If you press a button, the program will continue
+pse
 clr
-pln This programming language was made by @Maxwellcrafter $val
+pln This programming language was made by @Maxwellcrafter.
+pln And here's yet another number: $val
        pnt This code has leading whitespace
-     pnt but works as it should :)
+     pln but works as it should :)
+pln You can't continue yet, but you can after 7 seconds^!
+inc
+col $val
+wat
+inc
+col $val
+wat
+inc
+col $val
+wat
+inc
+col $val
+wat
+inc
+col $val
+wat
+inc
+col $val
+wat
+inc
+col $val
+wat
+pnt Now you can press a button to continue^!
+dec
+dec
+dec
+dec
+dec
+dec
+dec
 col $val
 inc
-wat
+pse
 clr
 got 1

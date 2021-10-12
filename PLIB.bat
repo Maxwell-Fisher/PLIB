@@ -81,6 +81,8 @@ if "!read:~0,3!"=="end" ( %= Ends script =%
     goto end
 ) else if "!read:~0,3!"=="clr" ( %= Clears console window =%
     cls
+) else if "!read:~0,3!"=="pse" ( %= Halts until user input is received =%
+    pause > nul
 ) else if "!read:~0,3!"=="pln" ( %= Prints text with a new line =%
     echo !read:~4,64!
 ) else if "!read:~0,3!"=="pnt" ( %= Prints text without a new line =%
