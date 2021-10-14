@@ -104,7 +104,7 @@ if "!read:~0,3!"=="end" ( %= Ends script =%
 )
 goto main
 
-:end %= This runs then the script is over =%
+:end %= This runs when the script is over =%
 color 0F
 echo.
 echo.
