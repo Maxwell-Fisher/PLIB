@@ -1,14 +1,19 @@
 %= Sets up the window =%
 echo off
 cls
+mode 100, 25
 setlocal enabledelayedexpansion
 color 0f
 title PLIB - @Maxwellcrafter %= Programming Language In Batch =%
-set lineCount=1
 
-:getMode %= Selects whether to make a new temporary script or load an existing program =%
-echo Would you like to load an existing file or write a new program? (load/new)
+:getMode %= Selects whether to make a new temporary script, load an existing program, ao view info pages =%
+set lineCount=1
+set current=0001
+echo Type LOAD to load an existing script, or NEW to create a new one.       (load/new)
+echo To view the about page or documentation, type ABOUT or DOCS.            (about/docs)
 set /p mode="> "
+if /i "!mode!"=="about" goto aboutPage
+if /i "!mode!"=="docs" goto docsPage
 if /i "!mode!"=="load" goto getExisting
 cls
 if /i "!mode!"=="new" (
@@ -16,6 +21,42 @@ goto getNew
 )
 echo Unknown option "!mode!", please enter either LOAD or NEW
 goto getMode
+
+:aboutPage
+cls
+echo PLIB (Programming Language In Batch)
+echo Made by Maxwell Fisher (@Maxwellcrafter)
+echo Source can be found at https://github.com/Maxwell-Fisher/PLIB
+echo.
+echo Press any key to return to the main menu...
+pause >nul
+cls
+goto getMode
+exit /B
+
+:docsPage
+cls
+echo Command:     Use:
+echo END          Ends script
+echo CLR          Clears console window
+echo PSE          Halts until user input is received
+echo PLN          Prints text with a new line
+echo PNT          Prints text without a new line
+echo GOT          Goes to the specified line
+echo INC          Adds 1 to $val
+echo DEC          Subtracts 1 from $val
+echo WAT          Waits for 1 second before continuing
+echo COL          Sets the window colour to the selected value
+echo MTH          Does math
+echo.
+echo More:
+echo $val         The default variable. Can hold numbers between -2147483648 and 2147483647
+echo.
+echo Press any key to return to the main menu...
+pause >nul
+cls
+goto getMode
+exit /B
 
 :getExisting %= Selects and reads an existing file into memory with some formatting =%
 cls
@@ -109,5 +150,8 @@ color 0F
 echo.
 echo.
 echo Reached end of file
-pause > nul
+pause
+cls
+goto getMode
+exit /B
 exit
