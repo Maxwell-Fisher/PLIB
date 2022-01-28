@@ -36,21 +36,22 @@ exit /B
 
 :docsPage
 cls
-echo Command:     Use:
-echo END          Ends script
-echo CLR          Clears console window
-echo PSE          Halts until user input is received
-echo PLN          Prints text with a new line
-echo PNT          Prints text without a new line
-echo GOT          Goes to the specified line
-echo INC          Adds 1 to $val
-echo DEC          Subtracts 1 from $val
-echo WAT          Waits for 1 second before continuing
-echo COL          Sets the window colour to the selected value
-echo MTH          Does math
+echo Command:    Use:
+echo END         Ends the script, and is used to tell the editor when to be done   (end)
+echo CLR         Clears the console window                                         (clear)
+echo PSE         Halts the script until a key is pressed                           (pause)
+echo PLN         Prints text with a new line                                       (print line)
+echo PNT         Prints text without a new line                                    (print)
+echo GOT         Goes to the specified line                                        (goto)
+echo INC         Adds 1 to $val                                                    (increment)
+echo DEC         Subtracts 1 from $val                                             (decrement)
+echo WAT         Waits for 1 second before continuing                              (wait)
+echo COL         Sets the window colour to the selected value                      (colour)
+echo MTH         Does math                                                         (maths)
 echo.
-echo More:
-echo $val         The default variable. Can hold numbers between -2147483648 and 2147483647
+echo More info:
+echo $val        The default variable. Can hold numbers between -2147483648 and 2147483647
+echo Note:       Scripts should be saves as .plib files
 echo.
 echo Press any key to return to the main menu...
 pause >nul
